@@ -49,7 +49,7 @@ class InsurancePolicy(models.Model):
     # Motiu de baixa (insurance.down)
     down_reason_id = fields.Many2one('insurance.down.reason', 'Insurance Down Reason') # Opcional mentres l'assegurança sigui vigent
 
-    @api.depends('id', 'client_name', 'product_name')
+    @api.depends('client_name', 'product_name')
     def _compute_display_name(self):
         for record in self:
             if record.client_name != False and record.product_name != False:
