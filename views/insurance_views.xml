@@ -134,7 +134,7 @@
                 <field name="insurance_policy_ids" nolabel="1" readonly="1">
                     <list string="Insurance Policies">
                         <field name="name" string="Insurance"></field>
-                        <field name="object" string="Insured Object"></field>
+                        <field name="product_name" string="Product"></field>
                         <field name="provider_id" string="Insurance broker"></field>
                         <field name="client_id" string="Policyholder"></field>
                         <field name="effective_date" string="Effective Date"></field>
