@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Action report Policy -->
+    <record id="action_report_policy" model="ir.actions.report">
+        <field name="name">Policy Report</field>
+        <field name="model">insurance.policy</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">insurance_tortPau.report_policy_template</field>
+        <field name="report_file">insurance_tortPau.report_policy_template</field>
+        <field name="model_id" ref="insurance_tortPau.model_insurance_policy"/>
+        <field name="binding_model_id" ref="insurance_tortPau.model_insurance_policy"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Report template Policy -->
+    <template id="report_policy_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Policy Report</h2>
+                        <p>Name: <span t-field="o.name"/></p>
+                        <p>Client: <span t-field="o.client_id"/></p>
+                        <p>Provider: <span t-field="o.provider_id"/></p>
+                        <p>Effective Date: <span t-field="o.effective_date"/></p>
+                        <p>Cover Hour: <span t-field="o.cover_hour"/></p>
+                        <p>Maturity Type: <span t-field="o.maturity_type"/></p>
+                        <p>Cancel Date: <span t-field="o.cancel_date"/></p>
+                        <p>Down Reason: <span t-field="o.down_reason_id"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

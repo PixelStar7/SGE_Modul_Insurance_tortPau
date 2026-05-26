@@ -18,7 +18,7 @@
     'depends': ['base', 'product', 'sale', 'purchase'],
     'data': [
         'views/insurance_views.xml',
-        # 'report/insurance_report_qweb.xml'
+        'report/insurance_report_qweb.xml'
     ],
     'demo': [],
     'installable': True,
