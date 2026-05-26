@@ -130,7 +130,7 @@
         <field name="arch" type="xml">
 
             <!-- Després de la pestanya Notes Internes -->
-             <xpath expr="//notebook/page[@name='internal_notes']/field[@name='property_account_position_id']" position="after">
+             <xpath expr="//notebook/page[@name='internal_notes']" position="after">
                 <field name="insurance_policy_ids" nolabel="1" readonly="1">
                     <list string="Insurance Policies">
                         <field name="name" string="Insurance"></field>
