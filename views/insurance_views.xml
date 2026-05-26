@@ -37,9 +37,9 @@
         <field name="arch" type="xml">
             <form string="Policy">
                 <sheet>
-                    <group col="3">
+                    <group>
                         <!-- Material de l'esquerra de l'imatge -->
-                        <group colspan="2" style="width:75%">
+                        <group>
                             <!-- Esquerra Dalt -->
                             <group>
                                 <field name="name" string="Insurance"></field>
@@ -75,11 +75,6 @@
                             </group>
 
 
-                        </group>
-
-                        <!-- Aqui posarem la imatge -->
-                        <group colspan="1" style="width:25%">
-                            <field name="poster" widget="image" nolabel="1" options="{'size': [200, 296]}"></field>
                         </group>
                     </group>
                 </sheet>
