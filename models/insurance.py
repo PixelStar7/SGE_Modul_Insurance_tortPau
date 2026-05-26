@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _ 
-from odoo.exceptions import ValidationError 
+from odoo.exceptions import ValidationError
+from datetime import date, datetime
+from dateutil.relativedelta import relativedelta
 
 class InsuranceDownReason(models.Model):
     _name = 'insurance.down.reason'
@@ -34,6 +36,7 @@ class InsurancePolicy(models.Model):
     maturity_type = fields.Selection([('anual', 'Anual'), ('semi-anual', 'Semi-anual'), ('quarterly', 'Quarterly'), ('monthly', 'Monthly')], 'Maturity Type', required=True)
     insured_object = fields.Text('Insured Object', required=True)
 
+    expiration_date = fields.Date('Expiration Date', compute='_compute_expiration_date')
 
     # Producte (product.product)
     product_id = fields.Many2one('product.product', 'Product', required=True)
@@ -67,3 +70,8 @@ class InsurancePolicy(models.Model):
         for policy in self:
             if policy.effective_date < fields.Date.today():
                 raise ValidationError(_('The Effective Date cannot be before the current date.'))
+            
+    # Data d'expiració és la data final de pòlissa + les hores de cobertura
+    def _compute_expiration_date(self):
+        for policy in self:
+            policy.expiration_date = policy.cover_date + relativedelta(hours=policy.cover_hour)

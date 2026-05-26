@@ -42,7 +42,7 @@
                         <!-- Esquerra Dalt -->
                         <group>
                             <field name="name" string="Insurance"></field>
-                            <field name="client_name" string="Policyholder"></field>
+                            <field name="client_name" string="Policyholder" readonly="0"></field>
                             <field name="provider_id" string="Insurance broker"></field>
                         </group>
 
@@ -56,15 +56,18 @@
                         <separator string="INSURED OBJECT"></separator>
                         <field name="insured_object" nolabel="1" placeholder="Extra details..."></field>
 
-                        <group>
+                        <group col="3">
 
-                            <group>
+                            <group colspan="2" style="width:75%">
                                 <separator string="DATA COVERATION AND EXPIRATION"></separator>
                                 <field name="effective_date" string="Effective Date"></field>
                                 <field name="cover_hour" string="Effective Hour"></field>
+
+                                <field name="maturity_type" string="Type of expiration"></field>
+                                <field name="expiration_date" string="Expiration Date" readonly="1"></field>
                             </group>
 
-                            <group>
+                            <group colspan="1" style="width:25%">
                                 <separator string="CANCELLATION"></separator>
                                 <field name="cancel_date" string="Cancel Date"></field>
                                 <field name="down_reason_id" string="Down Reason" readonly="0" options="{'no_create': True}"></field>
