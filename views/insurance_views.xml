@@ -131,16 +131,22 @@
 
             <!-- Després de la pestanya Notes Internes -->
              <xpath expr="//notebook/page[@name='internal_notes']" position="after">
-                <field name="insurance_policy_ids" nolabel="1" readonly="1">
-                    <list string="Insurance Policies">
-                        <field name="name" string="Insurance"></field>
-                        <field name="product_name" string="Product"></field>
-                        <field name="provider_id" string="Insurance broker"></field>
-                        <field name="client_id" string="Policyholder"></field>
-                        <field name="effective_date" string="Effective Date"></field>
-                        <field name="cover_hour" string="Effective Hour"></field>
-                    </list>
-                </field>
+
+                <page name="policy_data" string="Policy Data">
+
+                    <field name="insurance_policy_ids" nolabel="1" readonly="1">
+                        <list string="Insurance Policies">
+                            <field name="name" string="Insurance"></field>
+                            <field name="product_name" string="Product"></field>
+                            <field name="provider_id" string="Insurance broker"></field>
+                            <field name="client_id" string="Policyholder"></field>
+                            <field name="effective_date" string="Effective Date"></field>
+                            <field name="cover_hour" string="Effective Hour"></field>
+                        </list>
+                    </field>
+                </page>
+                
+                
             </xpath>
         </field>
     </record>
