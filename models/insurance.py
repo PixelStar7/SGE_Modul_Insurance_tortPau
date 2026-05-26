@@ -75,3 +75,17 @@ class InsurancePolicy(models.Model):
     def _compute_expiration_date(self):
         for policy in self:
             policy.expiration_date = policy.cover_date + relativedelta(hours=policy.cover_hour)
+
+
+
+
+
+# CLASSES HERETADES
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    # Relació amb l'assegurança
+    insurance_policy_ids = fields.One2many('insurance.policy', 'client_id', 'Insurance Policies')
+
+    

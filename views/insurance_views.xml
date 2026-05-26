@@ -120,4 +120,29 @@
 
     <!-- Submenu de Down Reason -->
     <menuitem name="Down Reason" id="menu_down_reasons" parent="menu_configuration" action="insurance_down_reason_action"/>
+
+
+    <!-- Vistes Heretades -->
+    <record model="ir.ui.view" id="view_client_form_inherit_insurance">
+        <field name="name">res.partner.form.inherit.insurance</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"></field>
+        <field name="arch" type="xml">
+
+            <!-- Després de la pestanya Notes Internes -->
+             <xpath expr="//notebook/page[@name='internal_notes']/field[@name='property_account_position_id']" position="after">
+                <field name="insurance_policy_ids" nolabel="1" readonly="1">
+                    <list string="Insurance Policies">
+                        <field name="name" string="Insurance"></field>
+                        <field name="object" string="Insured Object"></field>
+                        <field name="provider_id" string="Insurance broker"></field>
+                        <field name="client_id" string="Policyholder"></field>
+                        <field name="effective_date" string="Effective Date"></field>
+                        <field name="cover_hour" string="Effective Hour"></field>
+                    </list>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
 </odoo> 
