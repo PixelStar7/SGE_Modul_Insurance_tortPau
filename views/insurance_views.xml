@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo> 
+
+    <!-- Estructura de navegació Superior -->
+    <menuitem name="Policy" id="menu_root"/>
+
+    <menuitem name="Configuration" id="menu_configuration" parent="menu_root" sequence="99"/>
+
+
+    <!-- GESTIÓ DE POLICY -->
+
+    <!-- Vista Llista de Policy -->
+    <record model="ir.ui.view" id="insurance_policy_list">
+        <field name="name">insurance.policy.list</field>
+        <field name="model">insurance.policy</field>
+        <field name="arch" type="xml">
+            <!-- decoration-danger: vermell // decoration-success: verd -->
+            <list string="Policies" decoration-danger="cancel_date != False" decoration-success="cancel_date == False">
+                <field name="id" string="Number"></field>
+                <field name="name" string="Insurance"></field>
+                <field name="client_name" string="Policyholder"></field>
+                <field name="provider_id" string="Insurance broker"></field>
+                <field name="effective_date" string="Effective Date"></field>
+                <field name="cover_hour" string="Effective Hour"></field>
+                <field name="maturity_type" string="Type of expiration"></field>
+                <field name="cancel_date" string="Expiration Date" optional="hide"></field>
+                <field name="down_reason_id" string="Down Reason" optional="hide"></field>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- Vista Formulari de Policy -->
+    
+
+
+    <!-- Acció de Policy -->
+    <record model="ir.actions.act_window" id="insurance_policy_action">
+        <field name="name">Policy</field>
+        <field name="res_model">insurance.policy</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Submenu de Policy -->
+    <menuitem name="Policy" id="menu_policies" parent="menu_root" action="insurance_policy_action" sequence="10"/>
+
+
+
+    <!-- GESTIÓ DE DOWN REASON -->
+
+    <!-- Vista Llista de Down Reason -->
+    <record model="ir.ui.view" id="insurance_down_reason_list">
+        <field name="name">insurance.down.reason.list</field>
+        <field name="model">insurance.down.reason</field>
+        <field name="arch" type="xml">
+            <list string="Down Reasons" editable="bottom">
+                <field name="description" string="Description"></field>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- Acció de Down Reason -->
+    <record model="ir.actions.act_window" id="insurance_down_reason_action">
+        <field name="name">Down Reason</field>
+        <field name="res_model">insurance.down.reason</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Submenu de Down Reason -->
+    <menuitem name="Down Reason" id="menu_down_reasons" parent="menu_configuration" action="insurance_down_reason_action"/>
+</odoo> 
