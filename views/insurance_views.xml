@@ -37,45 +37,43 @@
         <field name="arch" type="xml">
             <form string="Policy">
                 <sheet>
+                    <!-- Material de l'esquerra de l'imatge -->
                     <group>
-                        <!-- Material de l'esquerra de l'imatge -->
+                        <!-- Esquerra Dalt -->
                         <group>
-                            <!-- Esquerra Dalt -->
-                            <group>
-                                <field name="name" string="Insurance"></field>
-                                <field name="client_name" string="Policyholder"></field>
-                                <field name="provider_id" string="Insurance broker"></field>
-                            </group>
-
-                            <!-- Dreta Dalt -->
-                            <group>
-                                <field name="id" string="Number"></field>
-                                <field name="create_uid" string="Created by"></field>
-                                <field name="create_date" string="Created on"></field>
-                            </group>
-
-                            <separator string="INSURED OBJECT"></separator>
-                            <field name="insured_object" nolabel="1" placeholder="Extra details..."></field>
-
-                            <group>
-
-                                <group>
-                                    <separator string="DATA COVERATION AND EXPIRATION"></separator>
-                                    <field name="effective_date" string="Effective Date"></field>
-                                    <field name="cover_hour" string="Effective Hour"></field>
-                                </group>
-
-                                <group>
-                                    <separator string="CANCELLATION"></separator>
-                                    <field name="cancel_date" string="Cancel Date"></field>
-                                    <field name="down_reason_id" string="Down Reason" readonly="0" options="{'no_create': True}"></field>
-                                </group>
-
-                                
-                            </group>
-
-
+                            <field name="name" string="Insurance"></field>
+                            <field name="client_name" string="Policyholder"></field>
+                            <field name="provider_id" string="Insurance broker"></field>
                         </group>
+
+                        <!-- Dreta Dalt -->
+                        <group>
+                            <field name="id" string="Number"></field>
+                            <field name="create_uid" string="Created by"></field>
+                            <field name="create_date" string="Created on"></field>
+                        </group>
+
+                        <separator string="INSURED OBJECT"></separator>
+                        <field name="insured_object" nolabel="1" placeholder="Extra details..."></field>
+
+                        <group>
+
+                            <group>
+                                <separator string="DATA COVERATION AND EXPIRATION"></separator>
+                                <field name="effective_date" string="Effective Date"></field>
+                                <field name="cover_hour" string="Effective Hour"></field>
+                            </group>
+
+                            <group>
+                                <separator string="CANCELLATION"></separator>
+                                <field name="cancel_date" string="Cancel Date"></field>
+                                <field name="down_reason_id" string="Down Reason" readonly="0" options="{'no_create': True}"></field>
+                            </group>
+
+                            
+                        </group>
+
+
                     </group>
                 </sheet>
             </form>
